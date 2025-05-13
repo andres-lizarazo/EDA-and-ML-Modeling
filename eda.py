@@ -28,7 +28,8 @@ if 'target' in df.columns:
     plt.figure(figsize=(8, 6))
     sns.countplot(x='target', data=df)
     plt.title('Distribución de la variable objetivo')
-    plt.show()
+    plt.savefig('img/distribucion_target.png')
+    plt.close()
 
 # Convertir columnas no numéricas a numéricas si es posible
 for col in df.columns:
@@ -39,7 +40,9 @@ for col in df.columns:
 plt.figure(figsize=(10, 8))
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
 plt.title('Matriz de correlación')
+plt.savefig('img/matriz_correlacion.png')
 plt.show()
+plt.close()
 
 #%%
 # Visualizar la distribución de algunas variables numéricas
@@ -48,5 +51,6 @@ for col in numeric_cols[:4]:  # Mostrar solo las primeras 4 columnas numéricas
     plt.figure(figsize=(8, 6))
     sns.histplot(df[col], kde=True)
     plt.title(f'Distribución de {col}')
-    plt.show() 
-# %%
+    plt.savefig(f'img/distribucion_{col}.png')
+    plt.show()
+    plt.close() 
